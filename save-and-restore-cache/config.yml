@@ -78,6 +78,9 @@ jobs:
       - run:
           name: List files
           command: ls -la
+      - run:
+          name: List files
+          command: ls -la
           working_directory: save-and-restore-cache
       - run:
           name: Confirm sizes

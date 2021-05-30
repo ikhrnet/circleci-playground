@@ -9,7 +9,7 @@ jobs:
       - run: 
           name: Create file
           command: echo hello > /tmp/hello
-      - persist_to_workspace
+      - persist_to_workspace:
           root: /tmp
           paths:
             - hello

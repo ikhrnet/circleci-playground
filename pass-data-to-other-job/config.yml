@@ -10,15 +10,15 @@ jobs:
     steps:
       - checkout
       - run: 
-          name: Reveal current directory
-          command: pwd
+          name: Create directory for persistence
+          command: workspace
       - run: 
           name: Create file
-          command: echo hello > /tmp/hello
+          command: echo hello > workspace/hello
       - persist_to_workspace:
-          root: /tmp
+          root: .
           paths:
-            - hello
+            - workspace
   job-1:
     docker:
       - image: cimg/base:2021.04
@@ -28,10 +28,13 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/hello
+          at: workspace
       - run: 
-          name: Browse files in tmp
-          command: ls -l /tmp
+          name: List files
+          command: ls -l
+      - run: 
+          name: Browse file
+          command: cat workspace/hello
 
 workflows:
   version: 2.1

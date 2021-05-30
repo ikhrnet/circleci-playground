@@ -22,6 +22,9 @@ jobs:
             - run: 
                 name: Reveal MAIN
                 command: eval "echo \${<< pipeline.git.branch >>^^}"
+            - run: 
+                name: Upcase main
+                command: echo "${<< pipeline.git.branch >>^^}"
 
 workflows:
   version: 2.1

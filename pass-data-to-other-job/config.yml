@@ -5,10 +5,13 @@ jobs:
     docker:
       - image: cimg/base:2021.04
         auth:
-          password: $DOCKERHUB_LOGIN
+          username: $DOCKERHUB_LOGIN
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
+      - run: 
+          name: Reveal current directory
+          command: pwd
       - run: 
           name: Create file
           command: echo hello > /tmp/hello
@@ -20,7 +23,7 @@ jobs:
     docker:
       - image: cimg/base:2021.04
         auth:
-          password: $DOCKERHUB_LOGIN
+          username: $DOCKERHUB_LOGIN
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout

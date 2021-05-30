@@ -18,6 +18,8 @@ jobs:
       - image: cimg/base:2021.04
     steps:
       - checkout
+      - attach_workspace:
+          at: /tmp/hello
       - run: 
           name: Browse files in tmp
           command: ls -l /tmp

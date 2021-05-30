@@ -27,4 +27,6 @@ workflows:
   workflow-0:
     jobs:
       - job-0
-      - job-1
+      - job-1:
+          requires:
+            - job-0

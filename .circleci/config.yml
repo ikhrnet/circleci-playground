@@ -14,12 +14,12 @@ jobs:
     steps:
       - checkout
       - when:
-        condition:
-          equal: ["main", << parameters.branch >>]
-        steps:
-          - run: 
-              name: Say hello
-              command: echo Hello
+          condition:
+            equal: ["main", << parameters.branch >>]
+          steps:
+            - run: 
+                name: Say hello
+                command: echo Hello
 
 workflows:
   version: 2.1

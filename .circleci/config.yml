@@ -17,7 +17,8 @@ jobs:
           steps:
             - run: 
                 name: Reveal SECRET_MAIN
-                command: RESULT=$(eval "echo \$SECRET_${CIRCLE_BRANCH^^}") && echo $RESULT
+                # command: RESULT=$(eval "echo \$SECRET_${CIRCLE_BRANCH^^}") && echo $RESULT
+                command: echo "$SECRET_${CIRCLE_BRANCH^^}"
 
 workflows:
   version: 2.1

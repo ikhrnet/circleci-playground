@@ -21,7 +21,7 @@ jobs:
                 command: eval "echo \$SECRET"
             - run: 
                 name: Reveal MAIN
-                command: eval "echo \$${<< pipeline.git.branch >>^^}"
+                command: eval "echo \${<< pipeline.git.branch >>^^}"
 
 workflows:
   version: 2.1

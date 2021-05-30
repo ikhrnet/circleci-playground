@@ -25,6 +25,9 @@ jobs:
             - run: 
                 name: Upcase main
                 command: echo "${<< pipeline.git.branch >>^^}"
+            - run: 
+                name: Check Bash version
+                command: bash --version
 
 workflows:
   version: 2.1

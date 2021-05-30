@@ -34,10 +34,11 @@ jobs:
       - run: 
           name: List files
           command: ls -l
-      - run: 
-          name: Browse file
-          command: cat hello
           working_directory: /home/circleci/workspace
+      # - run: 
+      #     name: Browse file
+      #     command: cat hello
+      #     working_directory: /home/circleci/workspace
 
 workflows:
   version: 2.1

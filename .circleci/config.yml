@@ -23,6 +23,7 @@ jobs:
       - restore_cache:
           keys:
             - composer-v1-{{ checksum "save-and-restore-cache/composer.lock" }}
+          paths: save-and-restore-cache
       # - run:
       #     name: Install Node.js packages
       #     command: npm install
@@ -68,6 +69,7 @@ jobs:
       - restore_cache:
           keys:
             - composer-v1-{{ checksum "save-and-restore-cache/composer.lock" }}
+          paths: save-and-restore-cache
       # - run:
       #     name: Install Node.js packages
       #     command: npm install

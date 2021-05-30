@@ -25,4 +25,4 @@ workflows:
   version: 2.1
   workflow-0:
     jobs:
-      - build
+      - job-0

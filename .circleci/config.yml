@@ -9,6 +9,12 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
+      - run:
+          name: List files
+          command: ls -la
+      - run:
+          name: Confirm sizes
+          command: du -h -d 1
       - restore_cache:
           keys:
             - npm-v1-{{ checksum "package-lock.json" }}
@@ -21,6 +27,9 @@ jobs:
       - run:
           name: Install PHP packages
           command: composer install
+      - run:
+          name: List files
+          command: ls -la
       - run:
           name: Confirm sizes
           command: du -h -d 1
@@ -40,6 +49,12 @@ jobs:
           password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
+      - run:
+          name: List files
+          command: ls -la
+      - run:
+          name: Confirm sizes
+          command: du -h -d 1
       - restore_cache:
           keys:
             - npm-v1-{{ checksum "package-lock.json" }}
@@ -52,6 +67,12 @@ jobs:
       - run:
           name: Install PHP packages
           command: composer install
+      - run:
+          name: List files
+          command: ls -la
+      - run:
+          name: Confirm sizes
+          command: du -h -d 1
 
 workflows:
   version: 2.1

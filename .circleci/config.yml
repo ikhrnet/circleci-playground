@@ -71,10 +71,10 @@ jobs:
       # - run:
       #     name: Install Node.js packages
       #     command: npm install
-      - run:
-          name: Install PHP packages
-          command: composer install
-          working_directory: save-and-restore-cache
+      # - run:
+      #     name: Install PHP packages
+      #     command: composer install
+      #     working_directory: save-and-restore-cache
       - run:
           name: List files
           command: ls -la

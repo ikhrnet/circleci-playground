@@ -2,10 +2,6 @@ version: 2.1
 
 jobs:
   job-0:
-    # parameters:
-    #   branch:
-    #     type: string
-    #     default: main
     docker:
       - image: cimg/base:2021.04
         auth:
@@ -18,8 +14,14 @@ jobs:
             equal: ["main", << pipeline.git.branch >>]
           steps:
             - run: 
-                name: Refer to environment variable
-                command: echo $(eval "\$SECRET_${<< pipeline.git.branch >>^^}")
+                name: Reveal SECRET_MAIN
+                command: eval "echo \$SECRET_${<< pipeline.git.branch >>^^}"
+            - run: 
+                name: Reveal SECRET
+                command: eval "echo \$SECRET"
+            - run: 
+                name: Reveal MAIN
+                command: eval "echo \$${<< pipeline.git.branch >>^^}"
 
 workflows:
   version: 2.1

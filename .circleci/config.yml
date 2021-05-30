@@ -17,10 +17,14 @@ jobs:
           name: Create file
           command: echo hello > hello
           working_directory: /home/circleci/workspace
+      - run: 
+          name: Create another file
+          command: echo bye > bye
+          working_directory: /home/circleci/workspace
       - persist_to_workspace:
           root: /home/circleci/workspace
           paths:
-            - hello
+            - *
   job-1:
     docker:
       - image: cimg/base:2021.04
@@ -35,10 +39,10 @@ jobs:
           name: List files
           command: ls -l
           working_directory: /home/circleci/workspace
-      # - run: 
-      #     name: Browse file
-      #     command: cat hello
-      #     working_directory: /home/circleci/workspace
+      - run: 
+          name: Browse file
+          command: cat hello
+          working_directory: /home/circleci/workspace
 
 workflows:
   version: 2.1

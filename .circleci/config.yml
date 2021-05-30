@@ -17,15 +17,9 @@ jobs:
           name: Confirm sizes
           command: du -h -d 1
           working_directory: save-and-restore-cache
-      # - restore_cache:
-      #     keys:
-      #       - npm-v1-{{ checksum "save-and-restore-cache/package-lock.json" }}
-      # - restore_cache:
-      #     keys:
-      #       - composer-v1-{{ checksum "save-and-restore-cache/composer.lock" }}
-      # - run:
-      #     name: Install Node.js packages
-      #     command: npm install
+      - restore_cache:
+          keys:
+            - composer-v2-{{ checksum "save-and-restore-cache/composer.lock" }}
       - run:
           name: Install PHP packages
           command: composer install
@@ -38,10 +32,6 @@ jobs:
           name: Confirm sizes
           command: du -h -d 1
           working_directory: save-and-restore-cache
-      # - save_cache:
-      #     key: npm-v1-{{ checksum "save-and-restore-cache/package-lock.json" }}
-      #     paths:
-      #       - node_modules
       - save_cache:
           key: composer-v2-{{ checksum "save-and-restore-cache/composer.lock" }}
           paths:
@@ -62,19 +52,13 @@ jobs:
           name: Confirm sizes
           command: du -h -d 1
           working_directory: save-and-restore-cache
-      # - restore_cache:
-      #     keys:
-      #       - npm-v1-{{ checksum "save-and-restore-cache/package-lock.json" }}
       - restore_cache:
           keys:
             - composer-v2-{{ checksum "save-and-restore-cache/composer.lock" }}
-      # - run:
-      #     name: Install Node.js packages
-      #     command: npm install
-      # - run:
-      #     name: Install PHP packages
-      #     command: composer install
-      #     working_directory: save-and-restore-cache
+      - run:
+          name: Install PHP packages
+          command: composer install
+          working_directory: save-and-restore-cache
       - run:
           name: List files
           command: ls -la

@@ -12,11 +12,13 @@ jobs:
       - run: 
           name: Create directory for persistence
           command: mkdir -p workspace
+          working_directory: /home/circleci
       - run: 
           name: Create file
-          command: echo hello > workspace/hello
+          command: echo hello > hello
+          working_directory: /home/circleci/workspace
       - persist_to_workspace:
-          root: .
+          root: /home/circleci
           paths:
             - workspace
   job-1:
@@ -28,13 +30,14 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: workspace
+          at: /home/circleci/workspace
       - run: 
           name: List files
           command: ls -l
       - run: 
           name: Browse file
-          command: cat workspace/hello
+          command: cat hello
+          working_directory: /home/circleci/workspace
 
 workflows:
   version: 2.1

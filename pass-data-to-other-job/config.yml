@@ -18,9 +18,9 @@ jobs:
           command: echo hello > hello
           working_directory: /home/circleci/workspace
       - persist_to_workspace:
-          root: /home/circleci
+          root: /home/circleci/workspace
           paths:
-            - workspace
+            - hello
   job-1:
     docker:
       - image: cimg/base:2021.04

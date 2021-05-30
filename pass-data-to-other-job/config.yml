@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: 
           name: Create directory for persistence
-          command: workspace
+          command: mkdir -p workspace
       - run: 
           name: Create file
           command: echo hello > workspace/hello

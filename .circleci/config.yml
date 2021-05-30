@@ -11,8 +11,9 @@ jobs:
       - checkout
       - when:
           condition:
-            not:
-              equal: ["main", << pipeline.git.branch >>]
+            # not:
+            #   equal: ["main", << pipeline.git.branch >>]
+            equal: ["main", << pipeline.git.branch >>]
           steps:
             - run: 
                 name: Reveal SECRET_MAIN

@@ -10,8 +10,9 @@ jobs:
     steps:
       - checkout
       - when:
-          not:
-            equal: ["main", << pipeline.git.branch >>]
+          condition:
+            not:
+              equal: ["main", << pipeline.git.branch >>]
           steps:
             - run: 
                 name: Reveal SECRET_MAIN

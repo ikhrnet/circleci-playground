@@ -12,9 +12,11 @@ jobs:
       - run:
           name: List files
           command: ls -la
+          working_directory: save-and-restore-cache
       - run:
           name: Confirm sizes
           command: du -h -d 1
+          working_directory: save-and-restore-cache
       # - restore_cache:
       #     keys:
       #       - npm-v1-{{ checksum "save-and-restore-cache/package-lock.json" }}
@@ -27,12 +29,15 @@ jobs:
       - run:
           name: Install PHP packages
           command: composer install
+          working_directory: save-and-restore-cache
       - run:
           name: List files
           command: ls -la
+          working_directory: save-and-restore-cache
       - run:
           name: Confirm sizes
           command: du -h -d 1
+          working_directory: save-and-restore-cache
       # - save_cache:
       #     key: npm-v1-{{ checksum "save-and-restore-cache/package-lock.json" }}
       #     paths:
@@ -52,9 +57,11 @@ jobs:
       - run:
           name: List files
           command: ls -la
+          working_directory: save-and-restore-cache
       - run:
           name: Confirm sizes
           command: du -h -d 1
+          working_directory: save-and-restore-cache
       # - restore_cache:
       #     keys:
       #       - npm-v1-{{ checksum "save-and-restore-cache/package-lock.json" }}
@@ -67,12 +74,15 @@ jobs:
       - run:
           name: Install PHP packages
           command: composer install
+          working_directory: save-and-restore-cache
       - run:
           name: List files
           command: ls -la
+          working_directory: save-and-restore-cache
       - run:
           name: Confirm sizes
           command: du -h -d 1
+          working_directory: save-and-restore-cache
 
 workflows:
   version: 2.1

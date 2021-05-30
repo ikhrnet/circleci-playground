@@ -11,17 +11,11 @@ jobs:
       - checkout
       - when:
           condition:
-            equal: ["main", << pipeline.git.branch >>]
+            equal: ["main", "development", << pipeline.git.branch >>]
           steps:
             - run: 
                 name: Reveal SECRET_MAIN
                 command: eval "echo \$SECRET_${CIRCLE_BRANCH^^}"
-            - run: 
-                name: Reveal SECRET
-                command: eval "echo \$SECRET"
-            - run: 
-                name: Reveal MAIN
-                command: eval "echo \$${CIRCLE_BRANCH^^}"
 
 workflows:
   version: 2.1

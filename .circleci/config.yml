@@ -20,10 +20,9 @@ jobs:
       # - restore_cache:
       #     keys:
       #       - npm-v1-{{ checksum "save-and-restore-cache/package-lock.json" }}
-      - restore_cache:
-          keys:
-            - composer-v1-{{ checksum "save-and-restore-cache/composer.lock" }}
-          paths: save-and-restore-cache
+      # - restore_cache:
+      #     keys:
+      #       - composer-v1-{{ checksum "save-and-restore-cache/composer.lock" }}
       # - run:
       #     name: Install Node.js packages
       #     command: npm install
@@ -46,7 +45,7 @@ jobs:
       - save_cache:
           key: composer-v1-{{ checksum "save-and-restore-cache/composer.lock" }}
           paths:
-            - vendor
+            - save-and-restore-cache/vendor
   job-1:
     docker:
       - image: composer:2
@@ -69,7 +68,6 @@ jobs:
       - restore_cache:
           keys:
             - composer-v1-{{ checksum "save-and-restore-cache/composer.lock" }}
-          paths: save-and-restore-cache
       # - run:
       #     name: Install Node.js packages
       #     command: npm install

@@ -2,10 +2,10 @@ version: 2.1
 
 jobs:
   job-0:
-    parameters:
-      branch:
-        type: string
-        default: main
+    # parameters:
+    #   branch:
+    #     type: string
+    #     default: main
     docker:
       - image: cimg/base:2021.04
         auth:
@@ -15,7 +15,7 @@ jobs:
       - checkout
       - when:
           condition:
-            equal: ["main", << parameters.branch >>]
+            equal: ["main", << pipeline.git.branch >>]
           steps:
             - run: 
                 name: Say hello

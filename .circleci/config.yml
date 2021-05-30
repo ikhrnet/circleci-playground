@@ -15,19 +15,13 @@ jobs:
           steps:
             - run: 
                 name: Reveal SECRET_MAIN
-                command: eval "echo \$SECRET_${<< pipeline.git.branch >>^^}"
+                command: eval "echo \$SECRET_${CIRCLE_BRANCH^^}"
             - run: 
                 name: Reveal SECRET
                 command: eval "echo \$SECRET"
             - run: 
                 name: Reveal MAIN
-                command: eval "echo \${<< pipeline.git.branch >>^^}"
-            - run: 
-                name: Upcase main
-                command: echo "${<< pipeline.git.branch >>^^}"
-            - run: 
-                name: Check Bash version
-                command: bash --version
+                command: eval "echo \$${CIRCLE_BRANCH^^}"
 
 workflows:
   version: 2.1

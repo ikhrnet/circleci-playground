@@ -18,8 +18,8 @@ jobs:
             equal: ["main", << pipeline.git.branch >>]
           steps:
             - run: 
-                name: Say hello
-                command: echo << pipeline.git.branch >>
+                name: Refer to environment variable
+                command: eval "echo \$SECRET_${<< pipeline.git.branch >>^^}"
 
 workflows:
   version: 2.1

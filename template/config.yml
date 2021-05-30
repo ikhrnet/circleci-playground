@@ -4,6 +4,9 @@ jobs:
   build:
     docker:
       - image: cimg/base:2021.04
+        auth:
+          password: $DOCKERHUB_LOGIN
+          password: $DOCKERHUB_PASSWORD
     steps:
       - checkout
       - run: 

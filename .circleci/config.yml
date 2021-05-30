@@ -5,7 +5,7 @@ jobs:
     parameters:
       branch:
         type: string
-        default: $CIRCLE_BRANCH
+        default: main
     docker:
       - image: cimg/base:2021.04
         auth:
